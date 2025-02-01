@@ -1,21 +1,23 @@
 import pygame
 
-from constants import SCREEN_HEIGHT, SCREEN_WIDTH
+from constants import *
 
 
 def main():
-    """
-    Initialize Pygame and print a starting message for the game.
-    This function sets up the necessary initializations for Pygame modules and
-    outputs a single message to the console, indicating the start of the game.
-    """
-    # Initialize all imported Pygame modules
-    pygame.init()
-
-    # Print the starting message
     print("Starting asteroids!")
-    print("Screen Width:", SCREEN_WIDTH)
-    print("Screen Height:", SCREEN_HEIGHT)
+    print(f"Screen width: {SCREEN_WIDTH}")
+    print(f"Screen height: {SCREEN_HEIGHT}")
+
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    pygame.display.set_caption("Asteroids")
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+        screen.fill((0, 0, 0))
+        pygame.display.flip()
 
 
 if __name__ == "__main__":
